@@ -69,6 +69,11 @@ resource "aws_route_table_association" "tf_public_subnet_association" {
   route_table_id = aws_route_table.tf_route_table.id
 }
 
+# Create a Route Table Association for the Private Subnet
+resource "aws_route_table_association" "tf_private_subnet_association" {
+  subnet_id = aws_subnet.tf_private_subnet.id
+  route_table_id = aws_route_table.tf_route_table.id
+}
 
 # Create a new EC2 instance
 resource "aws_instance" "ec2server" {
