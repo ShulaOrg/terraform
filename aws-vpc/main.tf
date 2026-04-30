@@ -85,3 +85,14 @@ resource "aws_instance" "ec2server" {
     Name = "terraform-ec2-vpc"
   }
 }
+
+# Create a new EC2 instance
+resource "aws_instance" "ec2server_sec" {
+  ami = "ami-0ebfd941bbafe70c6"
+  instance_type = "t2.micro"
+  key_name = "aws_login"
+  subnet_id = aws_subnet.tf_public_subnet.id
+  tags = {
+    Name = "terraform-ec2-vpc-second"
+  }
+}
